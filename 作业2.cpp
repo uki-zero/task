@@ -1,15 +1,15 @@
 #include<iostream>
 using namespace std;
-typedef struct listnode
+typedef struct node
 {
 	int value;
-	listnode* next;
+	node* next;
 }node;
 node* creatlist(int a[], int m)
 {
 	node* phead = new node;
 	node* p = phead;
-	for (int i = 0; i <= n - 1; i++)
+	for (int i = 0; i <= m - 1; i++)
 	{
 		node* ptemp = new node;
 		ptemp->value = a[i];
@@ -19,19 +19,19 @@ node* creatlist(int a[], int m)
 	}
 	return phead;
 }
-void printlt(node* phead)
+void printls(node* phead)
 {
 	node* p = phead;
 	p = p->next;
 	while (p != NULL)
 	{
-		cout << p->value << ednl;
+		cout << p->value << endl;
 		p = p->next;
 	}
 }
 int main()
 {
-	int a[8] = { 1,2,4,5,6,7,9,1 };
-	printlt(creatlist(a[], 8));
+	int a[8] = { 1,2,3,4,5,6,8,7 };
+	printls(creatlist(a, 8));
 	return 0;
 }
