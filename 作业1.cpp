@@ -1,37 +1,27 @@
-#include<iostream>
+﻿#include<iostream>
+#include<iomanip>
 using namespace std;
-typedef struct listnode
+void mergearry(int a[], int m, int b[], int n)
 {
-	int value;
-	listnode* next;
-}node;
-node* creatlist(int a[], int m)
-{
-	node* phead = new node;
-	node* p = phead;
-	for (int i = 0; i <= n - 1; i++)
+	int i = m - 1;
+	int j = n - 1;
+	int s = m + n - 1;
+	while (i >=0 && j >= 0)
 	{
-		node* ptemp = new node;
-		ptemp->value = a[i];
-		ptemp->next = NULL;
-		p->next = ptemp;
-		p = ptemp;
+		if (a[i] >= b[j])
+			a[s--] = a[i--];
+		else
+			a[s--] = b[j--];
 	}
-	return phead;
-}
-void printlt(node* phead)
-{
-	node* p = phead;
-	p = p->next;
-	while (p != NULL)
-	{
-		cout << p->value << ednl;
-		p = p->next;
-	}
+	while (i >= 0)
+		a[s--] = a[i--];
 }
 int main()
 {
-	int a[8] = { 1,2,4,5,6,7,9,1 };
-	printlt(creatlist(a[], 8));
+	int a[8] = { 2,5,6,7,9 };
+	int b[3] = { 3,10,99 };
+	mergearry(a, 5, b, 3);
+	for (int i = 0; i <= 7; i++)
+		cout << a[i] << endl;
 	return 0;
 }
